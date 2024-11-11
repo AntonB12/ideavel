@@ -42,4 +42,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function ideas(): HasMany{
+        return $this->hasMany(Idea::Class);
+    }
+
+    public function ideasLiked(): BelongsToMany{
+        return $this->belongsToMany(Idea::class);
+    }
 }
